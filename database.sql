@@ -1,0 +1,25 @@
+CREATE DATABASE bucketlist;
+
+USE bucketlist;
+
+CREATE TABLE users (
+    username VARCHAR(255) PRIMARY KEY,
+    hashed_password VARCHAR(255)
+);
+
+CREATE TABLE goalLists (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(255),
+    title VARCHAR(50),
+    date DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (username) REFERENCES users(username)
+);
+
+CREATE TABLE goals (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    listID INT,
+    title VARCHAR(50),
+    completed BOOLEAN,
+    date DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (listID) REFERENCES goalLists(id)
+);

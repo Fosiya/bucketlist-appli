@@ -1,0 +1,22 @@
+{
+  "name": "bucketlist-appli",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "scripts": {
+    "build": "if-env TYPE=server && (cd server && npm install) || (cd client && npm install)",
+    "server": "node ./server/src/server.js",
+    "client": "cd client && npm start",
+    "start": "concurrently \"cd client && npm run start\" \"cd server/src && node server.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fosiya/bucketlist-appli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Fosiya/bucketlist-appli/issues"
+  },
+  "homepage": "https://github.com/Fosiya/bucketlist-appli#readme",
+  "dependencies": {
+    "concurrently": "^8.0.1"
+  }
+}
